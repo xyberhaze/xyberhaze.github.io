@@ -1,33 +1,34 @@
-# XyberHaze | Technical Clarity in a World of Cyber Haze 🔐
+# XyberHaze | Offensive AI & Technical Clarity 🔐
 
-Welcome to the **XyberHaze Lab**.
-
-I am a Professional Penetration Tester and Digital Sentry focused on offensive security, on-chain forensics, and autonomous AI systems. This site serves as the repository for my technical walkthroughs, security briefs, and digital blueprints.
-
----
-
-## 🛠️ Current Lab Projects
-- **Autonomous AI Node:** Running private, 24/7 AI agents on edge hardware (Raspberry Pi 4).
-- **On-Chain Intelligence:** Following the "Whale Trail" using advanced blockchain forensic tools.
-- **OSCP Journey:** Documenting the methodology and the grind toward Offensive Security Certified Professional.
+> **Mission Status:** [ACTIVE] 🛰️
+> **Specialization:** AI Red Teaming | Blockchain Forensics | Edge Computing
 
 ---
 
-## 📄 Featured Intelligence & Guides
-### [AI Partner Blueprint: The XyberHaze Method]
-*Learn how to build your own autonomous business partner on a Raspberry Pi.*
-**[Status: Coming Soon]**
+## 🕵️‍♂️ Featured Research
+### **[Project 01: The Future of Offensive Security]**
+Working at the intersection of AI and Red Teaming. I am currently documenting how we use autonomous agents to stress-test enterprise infrastructure. This isn't just theory—it's the new frontline.
 
-### [On-Chain Intel: Following the Whales]
-*A deep dive into tracking insider wallets and market movements.*
-**[View on Telegram](https://t.me/Xyber_Haze)**
+---
+
+## 🛠️ The XyberHaze Lab
+- **Autonomous Node:** Private AI agent running on Pi 4B (8GB).
+- **On-Chain Forensics:** Tracking whale movements and insider trails. 🐋
+- **Red Team Methodology:** Developing custom exploits for AI-driven systems.
+
+---
+
+## 💰 Get Involved / Services
+- **[Consulting]** Hire me for custom security recon or OSINT investigations.
+- **[Affiliates]** See the pro-level tools I use in the field.
+- **[Coming Soon]** *The XyberHaze Blueprint: Building an Autonomous Security Partner.*
 
 ---
 
 ## 🛰️ Connect with the Lab
-- **Telegram:** [@Xyber_Haze](https://t.me/Xyber_Haze)
-- **Twitter:** [@XyberHaze](https://twitter.com/XyberHaze)
-- **Facebook:** [XyberHaze Official](https://facebook.com/XyberHaze)
+- **Telegram:** [Join the Inner Circle](https://t.me/Xyber_Haze)
+- **Twitter:** [Follow the Grind](https://twitter.com/XyberHaze)
 
 ---
-*© 2026 XyberHaze. All rights reserved.*
+*© 2026 XyberHaze | Documenting the grind from the shadows.*
+
