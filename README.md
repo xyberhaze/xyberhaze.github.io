@@ -6,7 +6,7 @@
 ---
 
 ## 🕵️‍♂️ Featured Research
-### **[Project 01: The Future of Offensive Security]**
+### **[Project 01: The Future of Offensive Security](Project-01)**
 Working at the intersection of AI and Red Teaming. I am currently documenting how we use autonomous agents to stress-test enterprise infrastructure. This isn't just theory—it's the new frontline.
 
 ---
