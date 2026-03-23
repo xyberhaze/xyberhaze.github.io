@@ -11,57 +11,92 @@
 :root { --neon-blue: #00ffff; --neon-purple: #bc13fe; --bg: #050505; }
 * { box-sizing: border-box; scroll-behavior: smooth; }
 body { background-color: var(--bg); color: #f0f0f0; font-family: 'Share Tech Mono', monospace; margin: 0; overflow-x: hidden; }
-canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.3; }
+canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
+
 nav { position: fixed; top: 0; width: 100%; padding: 20px; background: rgba(0,0,0,0.9); z-index: 100; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid var(--neon-blue); }
 nav a { color: var(--neon-blue); text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 10vw, 6rem); color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue); margin: 0; letter-spacing: 10px; }
-.section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-.card { background: rgba(255,255,255,0.03); border: 1px solid var(--neon-blue); border-radius: 15px; padding: 40px; backdrop-filter: blur(10px); transition: 0.4s; }
-.card:hover { transform: scale(1.02); border-color: var(--neon-purple); box-shadow: 0 0 30px rgba(188, 19, 254, 0.4); }
-.btn { display: inline-block; padding: 12px 30px; border: 2px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; }
-.btn:hover { background: var(--neon-blue); color: #000; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%); }
+
+/* The Pulsing Avatar */
+.avatar {
+width: 180px; height: 180px;
+border-radius: 50%;
+border: 4px solid var(--neon-blue);
+margin-bottom: 30px;
+box-shadow: 0 0 20px var(--neon-blue);
+animation: pulseGlow 2.5s ease-in-out infinite;
+object-fit: cover;
+}
+@keyframes pulseGlow {
+0%, 100% { box-shadow: 0 0 20px var(--neon-blue); border-color: var(--neon-blue); }
+50% { box-shadow: 0 0 40px var(--neon-purple), 0 0 15px var(--neon-blue); border-color: var(--neon-purple); }
+}
+
+h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 10vw, 5rem); color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue); margin: 0; letter-spacing: 10px; }
+
+.section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+.card { background: rgba(13, 13, 15, 0.8); border: 1px solid var(--neon-blue); border-radius: 10px; padding: 40px; backdrop-filter: blur(10px); transition: 0.4s; text-align: left; }
+.card:hover { border-color: var(--neon-purple); box-shadow: 0 0 30px rgba(188, 19, 254, 0.3); }
+
+.btn { display: inline-block; padding: 12px 30px; border: 2px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+.btn:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 20px var(--neon-blue); }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 50px; }
 </style>
 </head>
-<
-body>
+<body>
 <canvas id="matrix"></canvas>
 <nav>
 <a href="#hero">Home</a>
+<a href="#about">The Lab</a>
 <a href="#services">Services</a>
-<a href="#partner">Partners</a>
 <a href="https://t.me/XyberHaze">Telegram</a>
 </nav>
+
 <section id="hero" class="hero">
-<h1 data-aos="zoom-out">XYBERHAZE</h1>
+<!-- Connecting to your uploaded image -->
+<img src="avatar.png" class="avatar" data-aos="zoom-in" alt="XyberHaze Logo">
+<h1 data-aos="fade-down">XYBERHAZE</h1>
 <p style="color: var(--neon-purple); letter-spacing: 5px;" data-aos="fade-up">OFFENSIVE AI & TECHNICAL CLARITY</p>
 </section>
+
+<section id="about" class="section">
+<div
+ class="card" data-aos="fade-right">
+<h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">// TERMINAL_ACCESS</h2>
+<p>> Professional Pen-Tester | AI Red Teaming | Blockchain Forensics</p>
+<p>> Documenting the grind from the shadows. Technical clarity is the only defense.</p>
+</div>
+</section>
 <section id="services" class="section">
-<h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">// SERVICES</h2>
+<h2 style="font-family: 'Orbitron'; color: var(--neon-blue); margin-bottom: 40px;">MANAGED_SOLUTIONS</h2>
 <div class="services-grid">
 <div class="card" data-aos="flip-up"><h3>AI Security Audits</h3><p>Full stress-testing of LLMs and autonomous agents.</p></div>
-<div class="card" data-aos="flip-up" data-aos-delay="200"><h3>Identity Protection</h3><p>Consulting for High-Value targets against AI impersonation.</p></div>
-<div class="card" data-aos="flip-up" data-aos-delay="400"><h3>Yield-Optimization</h3><p>Data-driven DeFi coaching and whale tracking.</p></div>
+<div class="card" data-aos="flip-up" data-aos-delay="200"><h3>Identity Protection</h3><p>Deepfake consulting and biometric security.</p></div>
+<div class="card" data-aos="flip-up" data-aos-delay="400"><h3>Yield-Optimization</h3><p>DeFi coaching and on-chain intelligence.</p></div>
 </div>
 </section>
-<section id="partner" class="section">
-<div class="card" data-aos="fade-right">
-<h3>ArbitrageScanner 🐋</h3>
-<p>Access the elite whale tracking dashboard.</p>
-<a href="https://arbitragescanner.io/?ref=6AACWXQI9Z" class="btn">ACCESS DASHBOARD</a>
+
+<section id="partners" class="section">
+<div class="card" data-aos="zoom-in" style="text-align: center;">
+<h3 style="color: var(--neon-blue);">ArbitrageScanner 🐋</h3>
+<p>Access the elite on-chain data dashboard.</p>
+<a href="https://arbitragescanner.io/?ref=6AACWXQI9Z" class="btn">Access Intelligence</a>
 </div>
 </section>
-<footer class="section">
+
+<footer class="section" style="opacity: 0.4;">
 <p>© 2026 XYBERHAZE | [SYSTEM_ONLINE]</p>
-</footer>
+</footer >
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 1500 });
+AOS.init({ duration: 1200 });
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const letters = "01010101";
 const fontSize = 16;
 const columns = canvas.width / fontSize;
 const drops = Array(Math.floor(columns)).fill(1);
