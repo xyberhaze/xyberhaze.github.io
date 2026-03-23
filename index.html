@@ -4,139 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XyberHaze | Lab 2026</title>
-<!-- Importing Google Fonts, FontAwesome Icons, and Animation Library -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-:root {
---neon-blue: #00ffff;
---neon-purple: #bc13fe;
---bg-dark: #050505;
---glass: rgba(255, 255, 255, 0.05);
-}
+:root { --neon-blue: #00ffff; --neon-purple: #bc13fe; --bg: #050505; }
 * { box-sizing: border-box; scroll-behavior: smooth; }
-body {
-background-color: var(--bg-dark);
-color: #f0f0f0;
-font-family: 'Share Tech Mono', monospace;
-margin: 0;
-overflow-x: hidden;
-}
-/* Navbar */
-nav {
-position: fixed; top: 0; width: 100%; padding: 20px;
-background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
-z-index: 100; display: flex; justify-content: center; gap: 30px;
-border-bottom: 1px solid var(--neon-blue);
-}
-nav a { color: var(--neon-blue); text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
-nav a:hover { color: var(--neon-purple); text-shadow: 0 0 10px var(--neon-purple); }
-
-/* Hero Section */
-.hero {
-height: 100vh; display: flex; flex-direction: column;
-justify-content: center; align-items: center; text-align: center;
-background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
-}
-h1 {
-font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 10vw, 6rem);
-color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue);
-margin: 0; letter-spacing: 10px;
-}
-
-/* Services Grid */
+body { background-color: var(--bg); color: #f0f0f0; font-family: 'Share Tech Mono', monospace; margin: 0; overflow-x: hidden; }
+canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.3; }
+nav { position: fixed; top: 0; width: 100%; padding: 20px; background: rgba(0,0,0,0.9); z-index: 100; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid var(--neon-blue); }
+nav a { color: var(--neon-blue); text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 10vw, 6rem); color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue); margin: 0; letter-spacing: 10px; }
 .section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-.services-grid {
-display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px; margin-top: 50px;
-}
-.service-card {
-background: var(--glass); border: 1px solid var(--neon-blue);
-border-radius: 15px; padding: 40px; transition: 0.4s;
-backdrop-filter: blur(10px);
-}
-.service-card:hover {
-transform: translateY(-10px); border-color: var(--neon-purple);
-box-shadow: 0 0 30px rgba(188, 19, 254, 0.3);
-}
-.service-card i { font-size: 3rem; color: var(--neon-blue); margin-bottom: 20px; }
-
-/* Links & Buttons */
-.btn {
-display: inline-block; padding: 12px 30px; border: 2px solid var(--neon-blue);
-color: var(--neon-blue); text-decoration: none; border-radius: 5px;
-margin-top: 20px; font-weight: bold; transition: 0.3s;
-}
+.card { background: rgba(255,255,255,0.03); border: 1px solid var(--neon-blue); border-radius: 15px; padding: 40px; backdrop-filter: blur(10px); transition: 0.4s; }
+.card:hover { transform: scale(1.02); border-color: var(--neon-purple); box-shadow: 0 0 30px rgba(188, 19, 254, 0.4); }
+.btn { display: inline-block; padding: 12px 30px; border: 2px solid var(--neon-blue); color: var(--neon-blue); text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; }
 .btn:hover { background: var(--neon-blue); color: #000; }
-
-footer { padding: 50px; border-top: 1px solid #222; opacity: 0.5; font-size: 0.8rem; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
 </style>
 </head>
-<body>
-
+<
+body>
+<canvas id="matrix"></canvas>
 <nav>
 <a href="#hero">Home</a>
-<a href="#about">The
- Lab</a>
 <a href="#services">Services</a>
-<a href="https://t.me/Xyber_Haze">Telegram</a>
+<a href="#partner">Partners</a>
+<a href="https://t.me/XyberHaze">Telegram</a>
 </nav>
-
 <section id="hero" class="hero">
-<h1 data-aos="fade-down">XYBERHAZE</h1>
+<h1 data-aos="zoom-out">XYBERHAZE</h1>
 <p style="color: var(--neon-purple); letter-spacing: 5px;" data-aos="fade-up">OFFENSIVE AI & TECHNICAL CLARITY</p>
-<a href="#services" class="btn" data-aos="zoom-in">INITIALIZE CONNECTION</a>
 </section>
-
-<section id="about" class="section">
-<h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">// THE_LAB</h2>
-<div class="service-card" data-aos="fade-right">
-<p>> Professional Pen-Tester | AI Red Teaming | Blockchain Forensics</p>
-<p>> Running private, autonomous nodes on Raspberry Pi 4 infrastructure.</p>
-</div>
-</section>
-
 <section id="services" class="section">
-<h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">MANAGED_SERVICES</h2>
+<h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">// SERVICES</h2>
 <div class="services-grid">
-<div class="service-card" data-aos="flip-left">
-<i class="fas fa-robot"></i>
-<h3>AI Security Audits</h3>
-<p>Full stress-testing of LLMs and autonomous agents to prevent logic abuse and prompt injection.</p>
-</div>
-<div class="service-card" data-aos="flip-left" data-aos-delay="200">
-<i class="fas fa-user-shield"></i>
-<h3>Deepfake Protection</h3>
-<p>Identity verification and consulting to protect executives and high-value targets from AI impersonation.</p>
-</div>
-<div class="service-card" data-aos="flip-left" data-aos-delay="400">
-<i class="fas fa-chart-line"></i>
-<h3>Yield-Optimization</h3>
-<p>Data-driven DeFi coaching and on-chain whale tracking to maximize portfolio performance.</p>
-</div>
+<div class="card" data-aos="flip-up"><h3>AI Security Audits</h3><p>Full stress-testing of LLMs and autonomous agents.</p></div>
+<div class="card" data-aos="flip-up" data-aos-delay="200"><h3>Identity Protection</h3><p>Consulting for High-Value targets against AI impersonation.</p></div>
+<div class="card" data-aos="flip-up" data-aos-delay="400"><h3>Yield-Optimization</h3><p>Data-driven DeFi coaching and whale tracking.</p></div>
 </div>
 </section>
-
-<section class="section">
-<h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">PARTNER_INTEL</h2>
-<div class="service-card" data-aos="zoom-in">
+<section id="partner" class="section">
+<div class="card" data-aos="fade-right">
 <h3>ArbitrageScanner 🐋</h3>
-<p>Access the top-tier on-chain data for whale tracking and market alerts.</p>
+<p>Access the elite whale tracking dashboard.</p>
 <a href="https://arbitragescanner.io/?ref=6AACWXQI9Z" class="btn">ACCESS DASHBOARD</a>
 </div>
 </section>
-
 <footer class="section">
-<div style="font-size: 2rem; margin-bottom: 20px;">
-<a href="https://twitter.com/XyberHaze" style="color: #fff; margin: 0 15px;"><i class="fab fa-x-twitter"></i></a>
-<a href="https://facebook.com/XyberHaze" style="color: #fff; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
-</div>
-© 2026 XYBERHAZE | TECHNICAL CLARITY. ALL RIGHTS RESERVED.
+<p>© 2026 XYBERHAZE | [SYSTEM_ONLINE]</p>
 </footer>
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({ duration: 1200 });</script>
+<script>
+AOS.init({ duration: 1500 });
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+function draw() {
+ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "#00ffff"; ctx.font = fontSize + "px monospace";
+for (let i = 0; i < drops.length; i++) {
+const text = letters[Math.floor(Math.random() * letters.length)];
+ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+drops[i]++;
+}
+}
+setInterval(draw, 33);
+</script>
 </body>
 </html>
-
