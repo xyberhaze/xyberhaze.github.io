@@ -4,42 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xyberhaze | Crypto & Security Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="glass-container">
         <header>
             <h1 class="neon-text">XYBERHAZE</h1>
-            <p>Security Audits • Yield Guides • Affiliate Stack</p>
+            <p>Security Audits // Yield Guides // Affiliate Stack</p>
         </header>
-<div style="margin: 20px 0; border-bottom: 1px solid #39ff14; border-top: 1px solid #39ff14;">
-    <script src="https://widgets.coingecko.com/gecko-coin-price-marquee-widget.js"></script>
-    <gecko-coin-price-marquee-widget 
-      coin-ids="bitcoin,ethereum,solana,cardano,ripple" 
-      initial-currency="usd" 
-      locale="en" 
-      background-color="#000000" 
-      v-border="0">
-    </gecko-coin-price-marquee-widget>
-</div>
+
+        <div style="margin: 20px 0; border-bottom: 1px solid #222; border-top: 1px solid #222;">
+            <script src="https://widgets.coingecko.com/gecko-coin-price-marquee-widget.js"></script>
+            <gecko-coin-price-marquee-widget coin-ids="bitcoin,ethereum,solana,cardano,ripple" initial-currency="usd" locale="en" background-color="#000000" v-border="0"></gecko-coin-price-marquee-widget>
+        </div>
+
         <section id="knowledge-base">
-            <h2>Knowledge Base</h2>
-            <div class="grid">
-                <div class="card">Audit Guides</div>
-                <div class="card">Arbitrage Scanners</div>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>01 // Audit Guides</h3>
+                    <p>Deep-dive security protocols for smart contract analysis.</p>
+                </div>
+                <div class="card">
+                    <h3>02 // Arbitrage Scanners</h3>
+                    <p>Real-time monitoring tools for cross-chain opportunities.</p>
+                </div>
             </div>
         </section>
 
-        <section id="affiliates">
-            <h2>Recommended Stack</h2>
-            <div class="stack-grid">
-                <div class="stack-tile">Hardware Wallets</div>
-                <div class="stack-tile">VPN Services</div>
+        <section id="affiliates" style="margin-top: 40px;">
+            <div class="card-grid">
+                <div class="card">
+                    <h3>03 // Hardware Wallets</h3>
+                    <p>Cold storage solutions for maximum asset protection.</p>
+                </div>
+                <div class="card">
+                    <h3>04 // VPN Services</h3>
+                    <p>Encrypted tunnels for secure DeFi transactions.</p>
+                </div>
             </div>
         </section>
 
         <footer>
-            <button id="paypal-button">Fuel the Lab (PayPal)</button>
+            <button id="paypal-button">FUEL THE LAB (PAYPAL)</button>
         </footer>
     </div>
 </body>
