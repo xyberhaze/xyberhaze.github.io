@@ -1,98 +1,36 @@
-/* XYBERHAZE INDUSTRIAL FUTURISM THEME */
-:root {
-  --bg-black: #000000;
-  --accent-purple: #6f4cff;
-  --text-white: #ffffff;
-  --border-gray: #222222;
-  --card-bg: #0a0a0a;
-}
-
 body {
-  background-color: var(--bg-black);
-  color: var(--text-white);
-  font-family: 'Roboto Mono', monospace;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
-  line-height: 1.6;
+    background-color: #0c0a1d; /* The Graph's signature navy */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
 }
 
-.glass-container {
-  max-width: 900px;
-  width: 100%;
-  border-left: 1px solid var(--border-gray);
-  padding-left: 40px;
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  letter-spacing: -1px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-weight: 800;
+    color: #6f4cff; /* Vibrant purple accent */
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
-.neon-text {
-  color: var(--accent-purple);
-  text-shadow: 0 0 15px rgba(111, 76, 255, 0.3);
-}
-
-p {
-  color: #888;
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-}
-
-/* THE GRAPH STYLE GRID */
 .card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.card, .stack-tile {
-  background: var(--card-bg);
-  border: 1px solid var(--border-gray);
-  border-radius: 4px;
-  padding: 30px;
-  transition: all 0.3s ease;
-  position: relative;
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(111, 76, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
 .card:hover {
-  border-color: var(--accent-purple);
-  background: #111;
-  transform: translateY(-2px);
-}
-
-.card h3 {
-  margin-top: 0;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  color: var(--accent-purple);
-}
-
-button {
-  background: var(--accent-purple);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 2px;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 30px;
-  transition: opacity 0.2s;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Responsive fix for mobile */
-@media (max-width: 768px) {
-  .card-grid { grid-template-columns: 1fr; }
-  .glass-container { border-left: none; padding-left: 0; }
+    border: 1px solid #6f4cff;
+    box-shadow: 0 0 15px rgba(111, 76, 255, 0.3);
 }
