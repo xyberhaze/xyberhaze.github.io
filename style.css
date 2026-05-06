@@ -1,90 +1,50 @@
-:root {
-  --bg: #030308;
-  --accent: #6f4cff;
-  --glass: rgba(255, 255, 255, 0.03);
-  --border: rgba(255, 255, 255, 0.1);
-  --text-main: #f8f6ff;
-  --text-dim: #94a3b8;
+/* Add this to your existing style.css */
+.ticker-wrap {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 40px;
+    background: rgba(12, 10, 29, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 1000;
 }
 
-body {
-  background-color: var(--bg);
-  /* The "2027 Glow" */
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(111, 76, 255, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.05) 0%, transparent 40%);
-  color: var(--text-main);
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  line-height: 1.6;
-  overflow-x: hidden;
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+    align-items: center;
+    height: 100%;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 100px 20px;
+.ticker-item {
+    padding: 0 40px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #94a3b8;
 }
 
-/* Fluid Hero Section */
-header {
-  text-align: center;
-  margin-bottom: 120px;
-  animation: fadeIn 1.5s ease-out;
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.btn-main {
+    display: inline-block;
+    background: #6f4cff;
+    color: white;
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 12px;
+    font-weight: 800;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(111, 76, 255, 0.2);
 }
 
-h1 {
-  font-size: clamp(3rem, 10vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -4px;
-  margin-bottom: 20px;
-  background: linear-gradient(to bottom, #fff 40%, #666);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Interactive Glass Cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.card {
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  padding: 50px 40px;
-  border-radius: 24px;
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: var(--accent);
-  transform: translateY(-10px) scale(1.02);
-}
-
-.btn-affiliate {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 24px;
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.8rem;
-  transition: 0.3s;
-}
-
-.btn-affiliate:hover {
-  box-shadow: 0 0 20px rgba(111, 76, 255, 0.5);
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(111, 76, 255, 0.4);
 }
