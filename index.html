@@ -42,7 +42,6 @@
         }
         input[type="email"]:focus { border-color: var(--neon); box-shadow: 0 0 10px var(--neon); }
 
-        /* Buttons */
         .btn {
             padding: 18px 30px; border: 1px solid var(--neon);
             color: var(--neon); text-decoration: none; font-weight: bold;
@@ -50,20 +49,18 @@
             background: transparent; cursor: pointer; font-family: monospace;
             display: inline-block;
         }
-        .btn:hover { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
-        .btn-primary { background: var(--neon); color: black; }
+        .btn:hover:not(:disabled) { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
+        .btn:disabled { border-color: #444; color: #444; cursor: not-allowed; }
 
-        /* Content Sections */
-        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; }
-        h2 { color: var(--neon); text-transform: uppercase; border-left: 4px solid var(--neon); padding-left: 15px; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .feature-card { background: var(--gray); border: 1px solid #333; padding: 30px; transition: 0.3s; }
-        .feature-card:hover { border-color: var(--neon); }
+        .status-msg { font-size: 0.7rem; margin-top: 10px; height: 15px; }
 
+        /* Navigation Menu */
         .command-menu { margin-top: 40px; display: flex; gap: 20px; justify-content: center; }
         .menu-link { color: #666; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
         .menu-link:hover { color: var(--neon); }
 
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; }
+        h2 { color: var(--neon); text-transform: uppercase; border-left: 4px solid var(--neon); padding-left: 15px; margin-bottom: 30px; }
         footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
@@ -83,9 +80,11 @@
                 [ ACTION: ENTER EMAIL TO SYNC AUDIT ]
             </p>
             
-            <form action="https://formspree.io/f/your-form-id" method="POST" id="audit-form">
-                <input type="email" name="email" placeholder="USER@ENCRYPTED.COM" required>
-                <button type="submit" class="btn btn-primary">GENERATE AUDIT & SYNC</button>
+            <form id="audit-form">
+                <input type="email" name="email" id="email" placeholder="USER@ENCRYPTED.COM" required data-fs-field>
+                <button type="submit" class="btn" data-fs-submit-btn>GENERATE AUDIT & SYNC</button>
+                <div class="status-msg" data-fs-success style="color: var(--neon); display:none;">SYNC COMPLETE. OPENING AUDIT...</div>
+                <div class="status-msg" data-fs-error style="color: #ff0000; display:none;">CONNECTION FAILED. RETRY.</div>
             </form>
         </div>
 
@@ -96,35 +95,27 @@
         </div>
     </section>
 
-    <div class="container">
-        <h2>The Three Pillars</h2>
-        <div class="grid">
-            <div class="feature-card">
-                <h3>Sovereignty</h3>
-                <p>Removing reliance on 3rd-party platforms. You own the keys, you own the data.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Continuity</h3>
-                <p>Automated triggers ensuring assets transfer to heirs, not the state.</p>
-            </div>
-        </div>
-    </div>
-
     <footer>
         XYBERHAZE // SYSTEM_STATUS: ONLINE
     </footer>
 
     <script>
-      // SCRIPT: Capture the email via Formspree, then trigger the PDF download
-      const form = document.getElementById('audit-form');
-      form.onsubmit = function(e) {
-        // We let the form submit naturally to Formspree, 
-        // but we trigger the PDF download after a brief delay
-        setTimeout(() => {
-          window.open('https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf', '_blank');
-        }, 1500); 
-      };
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      
+      formspree('initForm', { 
+        formElement: '#audit-form', 
+        formId: 'xgodpoer',
+        onSuccess: function() {
+            // Display success message
+            document.querySelector('[data-fs-success]').style.display = 'block';
+            // Trigger PDF Download after 1 second
+            setTimeout(() => {
+                window.open('https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf', '_blank');
+            }, 1000);
+        }
+      });
     </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
