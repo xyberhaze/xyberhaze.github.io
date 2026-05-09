@@ -5,51 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYBERHAZE // Research & Defense</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --purple: #bc13fe;
+            --dark-bg: #0a0a0a;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        /* Existing Styles maintained for consistency */
+        .ticker-wrap { background: #111; padding: 10px 0; border-bottom: 1px solid #222; }
+        .ticker-item { margin-right: 50px; font-weight: 900; letter-spacing: 2px; }
+        .btn-main {
+            text-decoration: none;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-weight: 900;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-main:hover { background: var(--neon-green); color: black; box-shadow: 0 0 20px var(--neon-green); }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px; max-width: 1200px; margin: auto; }
+        .card { background: #111; padding: 40px; border: 1px solid #222; border-radius: 10px; transition: 0.3s; }
+        .card:hover { border-color: var(--purple); transform: translateY(-5px); }
+        .assessment-box {
+            margin: 80px auto;
+            max-width: 800px;
+            padding: 60px 40px;
+            border: 1px solid var(--purple);
+            background: linear-gradient(145deg, #140a1e, #0a0a0a);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(188, 19, 254, 0.15);
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
     <div class="ticker-wrap">
-        <marquee scrollamount="14">
+        <marquee scrollamount="12">
+            <span class="ticker-item" style="color:var(--neon-green)">XYBERHAZE // 2033 STANDARD ACTIVE</span>
             <span class="ticker-item">BTC: $94,231 ▲</span>
-            <span class="ticker-item" style="color:#fff">//</span>
-            <span class="ticker-item" style="color:var(--purple)">SENTINEL SCAN: ACTIVE</span>
-            <span class="ticker-item" style="color:#fff">//</span>
-            <span class="ticker-item" style="color:var(--neon-green)">THREAT LEVEL: LOW</span>
-            <span class="ticker-item" style="color:#fff">//</span>
+            <span class="ticker-item" style="color:var(--purple)">RED TEAM CMM: UPDATED</span>
             <span class="ticker-item">SOL: $192.45 ▼</span>
-            <span class="ticker-item" style="color:#fff">//</span>
-            <span class="ticker-item" style="color:var(--purple)">ESTATE RECOVERY: READY</span>
+            <span class="ticker-item">THREAT LEVEL: NOMINAL</span>
         </marquee>
     </div>
 
-    <div style="text-align: center; padding: 0 20px;">
-        <h1>XYBERHAZE</h1>
-        <p style="color: #cbd5e1; font-size: 1.5rem; margin-bottom: 50px; font-weight: 400; letter-spacing: 1px; max-width: 800px; margin-left: auto; margin-right: auto;">
-            A Security Research Project engineering the 2033 Standard for Digital Social Security.
+    <div style="text-align: center; padding: 100px 20px 60px;">
+        <h1 style="font-size: 4rem; letter-spacing: -2px; margin: 0;">XYBERHAZE</h1>
+        <h2 style="color: var(--purple); font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 30px;">// 2033 STANDARD</h2>
+        <p style="color: #cbd5e1; font-size: 1.4rem; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.4;">
+            Architecting Offensive-Grade Defense for Private Estates and Digital Legacies.
         </p>
         <a href="mailto:xyberhaze@outlook.com?subject=I need a Xyberhaze Security Audit" class="btn-main">BOOK SECURITY AUDIT ($99)</a>
     </div>
 
     <div class="card-grid">
         <div class="card">
-            <h3 style="color:var(--purple)">MODULE // 01</h3>
+            <h3 style="color:var(--purple); margin:0;">MODULE // 01</h3>
             <h2 style="font-size:2.2rem; margin:15px 0;">Family Vault</h2>
-            <p style="color: #94a3b8;">Stress-testing your legacy. We ensure your assets stay invisible to AI-scams and malicious exploits.</p>
+            <p style="color: #94a3b8; line-height: 1.6;">Stress-testing your legacy. We ensure your assets stay invisible to AI-scams and malicious exploits via physical and digital hardening.</p>
         </div>
 
         <div class="card">
-            <h3 style="color:var(--neon-green)">MODULE // 02</h3>
+            <h3 style="color:var(--neon-green); margin:0;">MODULE // 02</h3>
             <h2 style="font-size:2.2rem; margin:15px 0;">Hardened Tools</h2>
-            <p style="color: #94a3b8;">Verified hardware and encrypted Swiss communication channels for the 2033 era.</p>
+            <p style="color: #94a3b8; line-height: 1.6;">Verified hardware, air-gapped recovery protocols, and encrypted Swiss communication channels for the 2033 era.</p>
         </div>
     </div>
 
-    <footer style="padding: 120px 20px; text-align: center;">
-        <a href="https://paypal.me/YOUR_PAYPAL_USERNAME/99" target="_blank" style="color:var(--neon-green); text-decoration:none; border:2px solid var(--neon-green); padding:20px 40px; border-radius:100px; font-weight:900; box-shadow: 0 0 30px rgba(57, 255, 20, 0.3); text-transform: uppercase; letter-spacing: 2px;">
-            Deposit for Audit (PayPal)
+    <div class="assessment-box">
+       <h3 style="color: var(--purple); text-transform: uppercase; letter-spacing: 3px; font-size: 1.5rem;">Is your Estate 2033-Ready?</h3>
+       <p style="color: #cbd5e1; font-size: 1.1rem; margin: 25px 0 40px; line-height: 1.8;">
+           Measure your **Red Team Maturity Level (1-5)** across 24 critical security vectors.<br>
+           Professional audit of your Family Vault protocols.
+       </p>
+       <a href="mailto:xyberhaze@outlook.com?subject=START FREE ASSESSMENT" class="btn-main" style="border-color: var(--purple); color: white;">START FREE ASSESSMENT</a>
+    </div>
+
+    <footer style="padding: 100px 20px; text-align: center; border-top: 1px solid #222;">
+        <a href="https://paypal.me/YOUR_PAYPAL_USERNAME/99" target="_blank" style="color:var(--neon-green); text-decoration:none; font-size: 0.9rem; letter-spacing: 2px; font-weight: bold;">
+            [ DEPOSIT FOR AUDIT VIA PAYPAL ]
         </a>
-        <p style="margin-top: 40px; opacity: 0.3; font-size: 0.8rem; letter-spacing: 3px;">XYBERHAZE LABS // RESEARCH & DEFENSE // EST 2024</p>
+        <p style="margin-top: 50px; opacity: 0.2; font-size: 0.7rem; letter-spacing: 5px;">XYBERHAZE LABS // EST 2024 // ALL RIGHTS RESERVED</p>
     </footer>
 
 </body>
