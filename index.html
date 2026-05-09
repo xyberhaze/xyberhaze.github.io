@@ -10,6 +10,7 @@
             --neon-green: #39ff14;
             --purple: #bc13fe;
             --dark-bg: #0a0a0a;
+            --terminal-gray: #888;
         }
         body {
             background-color: var(--dark-bg);
@@ -18,9 +19,9 @@
             margin: 0;
             overflow-x: hidden;
         }
-        /* Existing Styles maintained for consistency */
         .ticker-wrap { background: #111; padding: 10px 0; border-bottom: 1px solid #222; }
-        .ticker-item { margin-right: 50px; font-weight: 900; letter-spacing: 2px; }
+        .ticker-item { margin-right: 50px; font-weight: 900; letter-spacing: 2px; font-size: 0.8rem; }
+        
         .btn-main {
             text-decoration: none;
             border: 2px solid var(--neon-green);
@@ -30,21 +31,56 @@
             font-weight: 900;
             transition: 0.3s;
             display: inline-block;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: transparent;
         }
-        .btn-main:hover { background: var(--neon-green); color: black; box-shadow: 0 0 20px var(--neon-green); }
+        .btn-main:hover:not(:disabled) { background: var(--neon-green); color: black; box-shadow: 0 0 20px var(--neon-green); }
+        .btn-main:disabled { opacity: 0.5; cursor: wait; border-color: var(--terminal-gray); color: var(--terminal-gray); }
+        
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px; max-width: 1200px; margin: auto; }
         .card { background: #111; padding: 40px; border: 1px solid #222; border-radius: 10px; transition: 0.3s; }
         .card:hover { border-color: var(--purple); transform: translateY(-5px); }
-        .assessment-box {
-            margin: 80px auto;
-            max-width: 800px;
-            padding: 60px 40px;
-            border: 1px solid var(--purple);
-            background: linear-gradient(145deg, #140a1e, #0a0a0a);
-            border-radius: 20px;
-            box-shadow: 0 0 40px rgba(188, 19, 254, 0.15);
-            text-align: center;
+
+        #conversion-vault {
+            background: #050505; 
+            color: var(--neon-green); 
+            padding: 60px 20px; 
+            border: 1px dashed var(--neon-green); 
+            margin: 60px auto; 
+            max-width: 850px; 
+            font-family: 'Courier New', Courier, monospace; 
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.05);
+            border-radius: 4px;
         }
+        
+        input[type="email"] {
+            width: 100%; 
+            background: #000; 
+            border: 1px solid var(--neon-green); 
+            padding: 15px; 
+            color: var(--neon-green); 
+            font-family: inherit; 
+            margin-bottom: 5px; 
+            box-sizing: border-box;
+        }
+        input[type="email"]:focus { outline: none; box-shadow: 0 0 15px rgba(57, 255, 20, 0.4); }
+
+        /* Ajax Status Messages */
+        #status-message { margin-top: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        [data-fs-success] { color: var(--neon-green); display: none; }
+        [data-fs-error] { color: #ff4444; display: none; font-size: 0.8rem; margin-bottom: 10px; }
+
+        .checklist-preview {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+            padding: 20px;
+            border-left: 2px solid var(--purple);
+            background: rgba(188, 19, 254, 0.05);
+        }
+        .checklist-item { margin-bottom: 15px; color: #cbd5e1; font-size: 0.9rem; }
+        .checklist-item strong { color: var(--purple); }
     </style>
 </head>
 <body>
@@ -53,19 +89,18 @@
         <marquee scrollamount="12">
             <span class="ticker-item" style="color:var(--neon-green)">XYBERHAZE // 2033 STANDARD ACTIVE</span>
             <span class="ticker-item">BTC: $94,231 ▲</span>
-            <span class="ticker-item" style="color:var(--purple)">RED TEAM CMM: UPDATED</span>
+            <span class="ticker-item" style="color:var(--purple)">PHASE 01: VULNERABILITY ASSESSMENT OPEN</span>
             <span class="ticker-item">SOL: $192.45 ▼</span>
             <span class="ticker-item">THREAT LEVEL: NOMINAL</span>
         </marquee>
     </div>
 
     <div style="text-align: center; padding: 100px 20px 60px;">
-        <h1 style="font-size: 4rem; letter-spacing: -2px; margin: 0;">XYBERHAZE</h1>
+        <h1 style="font-size: clamp(3rem, 10vw, 5rem); letter-spacing: -2px; margin: 0;">XYBERHAZE</h1>
         <h2 style="color: var(--purple); font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 30px;">// 2033 STANDARD</h2>
         <p style="color: #cbd5e1; font-size: 1.4rem; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.4;">
             Architecting Offensive-Grade Defense for Private Estates and Digital Legacies.
         </p>
-        <a href="mailto:xyberhaze@outlook.com?subject=I need a Xyberhaze Security Audit" class="btn-main">BOOK SECURITY AUDIT ($99)</a>
     </div>
 
     <div class="card-grid">
@@ -74,7 +109,6 @@
             <h2 style="font-size:2.2rem; margin:15px 0;">Family Vault</h2>
             <p style="color: #94a3b8; line-height: 1.6;">Stress-testing your legacy. We ensure your assets stay invisible to AI-scams and malicious exploits via physical and digital hardening.</p>
         </div>
-
         <div class="card">
             <h3 style="color:var(--neon-green); margin:0;">MODULE // 02</h3>
             <h2 style="font-size:2.2rem; margin:15px 0;">Hardened Tools</h2>
@@ -82,21 +116,56 @@
         </div>
     </div>
 
-    <div class="assessment-box">
-       <h3 style="color: var(--purple); text-transform: uppercase; letter-spacing: 3px; font-size: 1.5rem;">Is your Estate 2033-Ready?</h3>
-       <p style="color: #cbd5e1; font-size: 1.1rem; margin: 25px 0 40px; line-height: 1.8;">
-           Measure your **Red Team Maturity Level (1-5)** across 24 critical security vectors.<br>
-           Professional audit of your Family Vault protocols.
-       </p>
-       <a href="mailto:xyberhaze@outlook.com?subject=START FREE ASSESSMENT" class="btn-main" style="border-color: var(--purple); color: white;">START FREE ASSESSMENT</a>
-    </div>
+    <section id="conversion-vault">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px;">// Phase 01: Vulnerability Assessment</h2>
+            <p style="color: var(--terminal-gray);">Enter your secure endpoint to receive the 12-point <strong>2033 Legacy Checklist.</strong></p>
+        </div>
+
+        <div id="status-message" data-fs-success>
+            [ SUCCESS: ENCRYPTION KEY SYNCED. CHECK YOUR INBOX. ]
+        </div>
+
+        <form id="assessment-form">
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <label style="display: block; margin-bottom: 10px; font-size: 0.8rem;">[DESTINATION_EMAIL]:</label>
+            
+            <div data-fs-error="email"></div>
+            <input type="email" name="email" id="email" required placeholder="USER@SECURE-NODE.COM" data-fs-field>
+            
+            <button type="submit" class="btn-main" style="width: 100%; background: var(--neon-green); color: #000;" data-fs-submit-btn>
+                GENERATE CHECKLIST & SYNC
+            </button>
+            
+            <div data-fs-error></div>
+        </form>
+
+        <div class="checklist-preview">
+            <div class="checklist-item"><strong>01.</strong> Dead Man’s Switch Verification</div>
+            <div class="checklist-item"><strong>02.</strong> Deepfake Verification Phrase</div>
+            <div class="checklist-item"><strong>03.</strong> Hardware Token Redundancy</div>
+            <div class="checklist-item" style="opacity:0.5;">[... 9 additional vectors hidden ...]</div>
+        </div>
+    </section>
 
     <footer style="padding: 100px 20px; text-align: center; border-top: 1px solid #222;">
-        <a href="https://paypal.me/YOUR_PAYPAL_USERNAME/99" target="_blank" style="color:var(--neon-green); text-decoration:none; font-size: 0.9rem; letter-spacing: 2px; font-weight: bold;">
-            [ DEPOSIT FOR AUDIT VIA PAYPAL ]
-        </a>
+        <a href="mailto:xyberhaze@outlook.com" style="color:var(--purple); text-decoration:none; font-size: 0.8rem; letter-spacing: 2px;">DIRECT_ENQUIRY: xyberhaze@outlook.com</a>
         <p style="margin-top: 50px; opacity: 0.2; font-size: 0.7rem; letter-spacing: 5px;">XYBERHAZE LABS // EST 2024 // ALL RIGHTS RESERVED</p>
     </footer>
+
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { 
+        formElement: '#assessment-form', 
+        formId: 'xgodpoer',
+        onSuccess: function() {
+            // Hide the form on success to show only the success message
+            document.getElementById('assessment-form').style.display = 'none';
+        }
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
