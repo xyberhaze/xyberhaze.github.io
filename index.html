@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XYBERHAZE // SOVEREIGN ESTATE SECURITY</title>
+    <title>XYBERHAZE // 2033 ESTATE PROTOCOL</title>
+    
+    <meta property="og:title" content="XYBERHAZE // 2033 ESTATE PROTOCOL">
+    <meta property="og:description" content="Offensive-grade digital estate hardening. Currently in Public Beta.">
+    <meta name="twitter:card" content="summary_large_image">
+
     <style>
         :root { --neon: #39FF14; --bg: #0a0a0a; --gray: #1a1a1a; }
         * { box-sizing: border-box; }
+        
         body {
             background-color: var(--bg); color: white;
             font-family: 'Courier New', Courier, monospace;
             margin: 0; line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Beta Badge Styling */
+        .beta-badge {
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--neon);
+            border: 1px solid var(--neon);
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* Hero Section - Optimized for Mobile */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
             align-items: center; justify-content: center;
@@ -22,69 +42,68 @@
         }
 
         .glitch {
-            font-size: clamp(2.5rem, 8vw, 4rem); font-weight: bold;
-            color: white; letter-spacing: 10px; margin-bottom: 10px;
+            font-size: clamp(2rem, 10vw, 4rem); font-weight: bold;
+            color: white; letter-spacing: 5px; margin-bottom: 10px;
+            line-height: 1.1;
         }
 
-        .tagline { color: var(--neon); font-size: 1.1rem; margin-bottom: 30px; border: 1px solid var(--neon); padding: 5px 15px; display: inline-block; }
+        .tagline { color: var(--neon); font-size: 0.9rem; margin-bottom: 30px; border: 1px solid var(--neon); padding: 5px 15px; display: inline-block; }
 
-        /* The Gatekeeper Form */
+        /* Sync Box / Form */
         .sync-box {
             background: #111; border: 1px solid #333; padding: 30px; 
             margin: 20px auto; width: 100%; max-width: 450px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         input[type="email"] {
             background: #000; border: 1px solid #444; color: var(--neon); 
             padding: 15px; width: 100%; margin-bottom: 20px; 
-            font-family: monospace; outline: none; transition: 0.3s;
+            font-family: monospace; font-size: 1rem; border-radius: 0;
         }
-        input[type="email"]:focus { border-color: var(--neon); box-shadow: 0 0 10px var(--neon); }
 
         .btn {
             padding: 18px 30px; border: 1px solid var(--neon);
             color: var(--neon); text-decoration: none; font-weight: bold;
             text-transform: uppercase; transition: 0.3s; width: 100%;
             background: transparent; cursor: pointer; font-family: monospace;
-            display: inline-block;
         }
-        .btn:hover:not(:disabled) { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
-        .btn:disabled { border-color: #444; color: #444; cursor: not-allowed; }
+        .btn:hover { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
 
-        .status-msg { font-size: 0.7rem; margin-top: 10px; height: 15px; }
-
-        /* Navigation Menu */
-        .command-menu { margin-top: 40px; display: flex; gap: 20px; justify-content: center; }
+        /* Menu */
+        .command-menu { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
         .menu-link { color: #666; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
         .menu-link:hover { color: var(--neon); }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; }
-        h2 { color: var(--neon); text-transform: uppercase; border-left: 4px solid var(--neon); padding-left: 15px; margin-bottom: 30px; }
-        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        h2 { color: var(--neon); text-transform: uppercase; border-left: 4px solid var(--neon); padding-left: 15px; font-size: 1.2rem; }
+        
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.7rem; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .hero { padding: 60px 15px; }
+            .sync-box { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="glitch">XYBERHAZE</div>
+        <div class="glitch">XYBERHAZE <span class="beta-badge">BETA v1.08</span></div>
         <div class="tagline">ESTATE MATURITY PROTOCOL // 2033</div>
         
-        <p style="max-width: 600px; color: #888; font-size: 0.9rem; margin-bottom: 30px;">
-            Traditional security is a legacy vulnerability. Download the 2033 Audit 
-            to initiate your hardening protocol.
+        <p style="max-width: 500px; color: #888; font-size: 0.85rem; margin-bottom: 30px;">
+            Sovereign digital hardening for the next decade. Identify vulnerabilities before they are exploited.
         </p>
 
         <div class="sync-box">
             <p style="color: var(--neon); font-size: 0.7rem; margin-bottom: 20px; letter-spacing: 2px;">
-                [ ACTION: ENTER EMAIL TO SYNC AUDIT ]
+                [ ACTION: SYNC EMAIL FOR AUDIT ACCESS ]
             </p>
             
-            <form id="audit-form">
-                <input type="email" name="email" id="email" placeholder="USER@ENCRYPTED.COM" required data-fs-field>
-                <button type="submit" class="btn" data-fs-submit-btn>GENERATE AUDIT & SYNC</button>
-                <div class="status-msg" data-fs-success style="color: var(--neon); display:none;">SYNC COMPLETE. OPENING AUDIT...</div>
-                <div class="status-msg" data-fs-error style="color: #ff0000; display:none;">CONNECTION FAILED. RETRY.</div>
+            <form id="audit-form" action="https://formspree.io/f/xgodpoer" method="POST">
+                <input type="email" name="email" placeholder="USER@ENCRYPTED.COM" required>
+                <button type="submit" class="btn">GENERATE AUDIT & SYNC</button>
             </form>
         </div>
 
@@ -95,27 +114,27 @@
         </div>
     </section>
 
+    <div class="container">
+        <h2>System Pillars</h2>
+        <p style="color: #666; font-size: 0.9rem;">
+            01. SOVEREIGNTY // Zero 3rd-party reliance.<br>
+            02. CONTINUITY // Automated heirship triggers.<br>
+            03. INTEGRITY // Anti-spoof biometric protection.
+        </p>
+    </div>
+
     <footer>
-        XYBERHAZE // SYSTEM_STATUS: ONLINE
+        XYBERHAZE // STATUS: BETA_DEPLOYED // 2026
     </footer>
 
     <script>
-      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      
-      formspree('initForm', { 
-        formElement: '#audit-form', 
-        formId: 'xgodpoer',
-        onSuccess: function() {
-            // Display success message
-            document.querySelector('[data-fs-success]').style.display = 'block';
-            // Trigger PDF Download after 1 second
-            setTimeout(() => {
-                window.open('https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf', '_blank');
-            }, 1000);
-        }
-      });
+      const form = document.getElementById('audit-form');
+      form.onsubmit = function(e) {
+        setTimeout(() => {
+          window.open('https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf', '_blank');
+        }, 1500); 
+      };
     </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
