@@ -3,71 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XYBERHAZE // 2033 STANDARD</title>
+    <title>XYBERHAZE // SOVEREIGN ESTATE SECURITY</title>
     <style>
-        :root { --neon: #39FF14; --bg: #0a0a0a; }
+        :root { --neon: #39FF14; --bg: #0a0a0a; --gray: #1a1a1a; }
+        * { box-sizing: border-box; }
         body {
             background-color: var(--bg); color: white;
             font-family: 'Courier New', Courier, monospace;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; min-height: 100vh; margin: 0; text-align: center;
-            padding: 20px;
+            margin: 0; line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 20px; border-bottom: 1px solid var(--gray);
+            text-align: center;
         }
 
         .glitch {
-            font-size: 3.5rem; font-weight: bold; text-transform: uppercase;
-            text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75);
-            animation: glitch 500ms infinite;
+            font-size: clamp(2rem, 8vw, 4rem); font-weight: bold;
+            color: white; letter-spacing: 10px; margin-bottom: 10px;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75); }
-            50% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
-            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75); }
+        .tagline { color: var(--neon); font-size: 1.2rem; margin-bottom: 30px; border: 1px solid var(--neon); padding: 5px 15px; }
+
+        /* Content Sections */
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; }
+        
+        h2 { color: var(--neon); text-transform: uppercase; border-left: 4px solid var(--neon); padding-left: 15px; margin-bottom: 30px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        
+        .feature-card {
+            background: var(--gray); border: 1px solid #333; padding: 30px;
+            transition: 0.3s;
+        }
+        .feature-card:hover { border-color: var(--neon); transform: translateY(-5px); }
+        .feature-card h3 { color: var(--neon); margin-top: 0; }
+
+        /* The Instructions / Flow */
+        .steps-box {
+            background: #111; border: 1px dashed var(--neon);
+            padding: 40px; margin-top: 50px;
         }
 
-        .briefing {
-            max-width: 600px; margin: 30px 0; color: #aaa;
-            font-size: 0.9rem; line-height: 1.6; border-left: 2px solid var(--neon);
-            padding-left: 20px; text-align: left;
-        }
+        .step-item { margin-bottom: 20px; display: flex; align-items: flex-start; }
+        .step-num { color: var(--neon); font-weight: bold; margin-right: 15px; font-size: 1.2rem; }
 
-        .btn-main {
-            padding: 20px 40px; border: 2px solid var(--neon);
+        /* Buttons */
+        .cta-group { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .btn {
+            padding: 15px 30px; border: 1px solid var(--neon);
             color: var(--neon); text-decoration: none; font-weight: bold;
-            text-transform: uppercase; transition: 0.3s; margin-bottom: 20px;
+            text-transform: uppercase; transition: 0.3s;
         }
+        .btn:hover { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
+        .btn.primary { background: var(--neon); color: black; }
 
-        .btn-main:hover { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
-
-        .command-menu { margin-top: 40px; display: flex; gap: 20px; }
-        .menu-link { color: #666; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
-        .menu-link:hover { color: var(--neon); }
-
-        .status { margin-top: 50px; color: #333; font-size: 0.7rem; letter-spacing: 2px; }
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div class="glitch">XYBERHAZE</div>
-    
-    <div class="briefing">
-        <strong>// SYSTEM BRIEFING: 2033 STANDARD</strong><br>
-        Traditional digital legacies are failing. We specialize in offensive-grade 
-        estate maturity. Protect your sovereign assets, biometric signatures, 
-        and air-gapped credentials before the next grid-shift. 
+    <section class="hero">
+        <div class="glitch">XYBERHAZE</div>
+        <div class="tagline">OFFENSIVE-GRADE ESTATE MATURITY</div>
+        <p style="max-width: 600px; color: #888;">By 2033, your digital presence is your most vulnerable asset. We provide the protocols to harden your legacy against systemic collapse and biometric theft.</p>
+        
+        <div class="cta-group">
+            <a href="https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf" target="_blank" class="btn primary">Download 2033 Audit</a>
+            <a href="#how-to" class="btn">Learn the Process</a>
+        </div>
+    </section>
+
+    <div class="container" id="how-to">
+        <h2>The Three Pillars</h2>
+        <div class="grid">
+            <div class="feature-card">
+                <h3>Sovereignty</h3>
+                <p>Removing reliance on 3rd-party platforms. You own the keys, you own the data, you own the exit.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Integrity</h3>
+                <p>Ensuring your biometric and digital signatures cannot be spoofed by generative AI threats.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Continuity</h3>
+                <p>Automated "Dead Man" triggers that ensure your family inherits your assets, not the state.</p>
+            </div>
+        </div>
+
+        <div class="steps-box">
+            <h2>Instructional Flow</h2>
+            <div class="step-item">
+                <div class="step-num">01.</div>
+                <div><strong>GENERATE AUDIT:</strong> Download the PDF to identify your Estate's current vulnerabilities.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">02.</div>
+                <div><strong>RUN PROTOCOL:</strong> Use our <a href="protocol.html" style="color:var(--neon)">Interactive Checklist</a> to track your hardening progress.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">03.</div>
+                <div><strong>EQUIP HARDWARE:</strong> Visit <a href="gear.html" style="color:var(--neon)">The Armory</a> to acquire physical security keys and signal isolators.</div>
+            </div>
+        </div>
     </div>
 
-    <a href="https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf" target="_blank" class="btn-main">
-        GENERATE AUDIT & SYNC
-    </a>
-
-    <div class="command-menu">
-        <a href="protocol.html" class="menu-link">[ RUN PROTOCOL ]</a>
-        <a href="gear.html" class="menu-link">[ ACCESS ARMORY ]</a>
-    </div>
-
-    <div class="status">LOGGED_AS: XYBERHAZE // ENCRYPTION: AES-256_ACTIVE</div>
+    <footer>
+        <p>XYBERHAZE // SECURING THE FRONTIER SINCE 2024</p>
+        <p>ESTATE_PROTOCOL_VERSION: 1.0.87</p>
+    </footer>
 
 </body>
 </html>
