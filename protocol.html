@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOCOL // 12-STEP AUDIT</title>
+    <style>
+        :root { --neon: #39FF14; --bg: #0a0a0a; --gray: #222; }
+        body { background: var(--bg); color: white; font-family: 'Courier New', Courier, monospace; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 10px; background: #111; z-index: 100; }
+        #progress-bar { height: 100%; width: 0%; background: var(--neon); box-shadow: 0 0 15px var(--neon); transition: 0.4s; }
+
+        header { text-align: center; margin-bottom: 40px; max-width: 800px; }
+        h1 { color: var(--neon); letter-spacing: 4px; margin-bottom: 5px; }
+        .score-text { font-size: 0.8rem; color: #666; text-transform: uppercase; }
+
+        .checklist { width: 100%; max-width: 600px; }
+        .step { background: #151515; border: 1px solid #333; margin-bottom: 15px; padding: 20px; display: flex; align-items: center; cursor: pointer; transition: 0.3s; }
+        .step:hover { border-color: var(--neon); }
+        
+        input[type="checkbox"] { transform: scale(1.5); margin-right: 20px; accent-color: var(--neon); cursor: pointer; }
+        
+        .step-label { flex-grow: 1; }
+        .step-title { display: block; font-weight: bold; color: var(--neon); font-size: 1rem; }
+        .step-desc { font-size: 0.8rem; color: #aaa; margin-top: 5px; }
+
+        .completed { border-color: var(--neon) !important; background: rgba(57, 255, 20, 0.05); }
+
+        .footer-nav { margin-top: 40px; }
+        .btn { border: 1px solid var(--neon); color: var(--neon); padding: 10px 20px; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .btn:hover { background: var(--neon); color: black; }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container"><div id="progress-bar"></div></div>
+
+    <header>
+        <h1>2033 PROTOCOL</h1>
+        <div class="score-text">Current Security Maturity: <span id="percent">0</span>%</div>
+    </header>
+
+    <div class="checklist">
+        <div class="step" onclick="toggleStep(this)">
+            <input type="checkbox" onchange="updateProgress()">
+            <div class="step-label">
+                <span class="step-title">01 // CREDENTIAL HARDENING</span>
+                <span class="step-desc">Eliminate static passwords. Migrate to FIDO2 hardware keys.</span>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <input type="checkbox" onchange="updateProgress()">
+            <div class="step-label">
+                <span class="step-title">02 // SEED PHRASE ISOLATION</span>
+                <span class="step-desc">Air-gap all recovery mnemonics in physical steel.</span>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <input type="checkbox" onchange="updateProgress()">
+            <div class="step-label">
+                <span class="step-title">03 // DEAD MAN'S SWITCH</span>
+                <span class="step-desc">Configure automated asset transfer triggers.</span>
+            </div>
+        </div>
+        
+        </div>
+
+    <div class="footer-nav">
+        <a href="gear.html" class="btn">PROCEED TO ARMORY</a>
+    </div>
+
+    <script>
+        function toggleStep(element) {
+            const checkbox = element.querySelector('input');
+            if (event.target !== checkbox) checkbox.checked = !checkbox.checked;
+            element.classList.toggle('completed', checkbox.checked);
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const total = document.querySelectorAll('input[type="checkbox"]').length;
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const percentage = (checked / total) * 100;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('percent').innerText = Math.round(percentage);
+        }
+    </script>
+</body>
+</html>
