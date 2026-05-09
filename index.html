@@ -4,96 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYBERHAZE // Research & Defense</title>
+    <meta name="apple-mobile-web-app-title" content="XYBERHAZE">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Toned down colors */
-            --neon-green: #29e812; /* Deeper, less "white-hot" green */
-            --purple: #8109d1;      /* Duller, richer purple */
+            --neon-green: #39ff14;
+            --purple: #bc13fe;
             --dark-bg: #0a0a0a;
-            --terminal-gray: #71717a; /* Warmer, muted gray for subtitles */
-            --off-white: #e2e8f0;    /* Text color slightly off-pure white */
+            --terminal-gray: #888;
         }
         body {
             background-color: var(--dark-bg);
-            color: var(--off-white);
+            color: white;
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Sharper text on dark bg */
         }
-        .ticker-wrap { background: #111; padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
-        .ticker-item { margin-right: 50px; font-weight: 900; letter-spacing: 2px; font-size: 0.8rem; }
+        /* Live Ticker Section */
+        .ticker-wrap { background: #111; padding: 12px 0; border-bottom: 1px solid #222; overflow: hidden; }
+        .ticker-item { margin-right: 60px; font-weight: 900; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; white-space: nowrap; }
+        
+        /* Typography & Layout */
+        .hero { text-align: center; padding: 120px 20px 80px; }
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 6rem); letter-spacing: -3px; margin: 0; text-transform: uppercase; line-height: 0.9; }
+        .hero h2 { color: var(--purple); font-size: 1.1rem; letter-spacing: 6px; margin-bottom: 40px; text-transform: uppercase; }
+        .hero p { color: #cbd5e1; font-size: 1.3rem; max-width: 750px; margin: 0 auto 50px; line-height: 1.5; }
+
+        /* Module Grid */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 40px 80px; max-width: 1200px; margin: auto; }
+        .card { background: #0f0f0f; padding: 45px; border: 1px solid #222; border-radius: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
+        .card:hover { border-color: var(--purple); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(188, 19, 254, 0.1); }
+        .card h3 { font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 20px; }
+
+        /* The Conversion Engine */
+        #conversion-vault {
+            background: #050505; 
+            color: var(--neon-green); 
+            padding: 70px 30px; 
+            border: 1px dashed var(--neon-green); 
+            margin: 80px auto; 
+            max-width: 850px; 
+            font-family: 'Courier New', Courier, monospace; 
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.05);
+            border-radius: 4px;
+            position: relative;
+        }
         
         .btn-main {
             text-decoration: none;
             border: 2px solid var(--neon-green);
             color: var(--neon-green);
-            padding: 15px 40px;
-            border-radius: 5px;
+            padding: 18px 45px;
             font-weight: 900;
-            transition: 0.2s ease-in-out;
+            transition: 0.3s;
             display: inline-block;
             text-transform: uppercase;
             cursor: pointer;
             background: transparent;
-            /* SIGNIFICANTLY reduced glow */
-            box-shadow: 0 0 5px rgba(41, 232, 18, 0.1); 
+            font-family: inherit;
+            width: 100%;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
         }
-        .btn-main:hover:not(:disabled) { 
-            background: rgba(41, 232, 18, 0.05); /* Very subtle background fill */
-            box-shadow: 0 0 15px rgba(41, 232, 18, 0.2); /* Muted glow on hover */
-        }
+        .btn-main:hover:not(:disabled) { background: var(--neon-green); color: black; box-shadow: 0 0 25px var(--neon-green); }
         .btn-main:disabled { opacity: 0.5; cursor: wait; border-color: var(--terminal-gray); color: var(--terminal-gray); }
-        
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px; max-width: 1200px; margin: auto; }
-        .card { background: #111; padding: 40px; border: 1px solid #1a1a1a; border-radius: 10px; transition: 0.2s; }
-        .card:hover { border-color: #2a2a2a; transform: translateY(-3px); } /* Very subtle hover effect */
-
-        #conversion-vault {
-            background: #050505; 
-            color: var(--neon-green); 
-            padding: 60px 20px; 
-            border: 1px dashed rgba(41, 232, 18, 0.3); /* Duller dashed border */
-            margin: 60px auto; 
-            max-width: 850px; 
-            font-family: 'Courier New', Courier, monospace; 
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Replaced glow with deep shadow for depth */
-            border-radius: 4px;
-        }
         
         input[type="email"] {
             width: 100%; 
             background: #000; 
-            border: 1px solid rgba(41, 232, 18, 0.3); /* Border starts muted */
-            padding: 15px; 
+            border: 1px solid var(--neon-green); 
+            padding: 18px; 
             color: var(--neon-green); 
             font-family: inherit; 
-            margin-bottom: 5px; 
+            margin-bottom: 20px; 
             box-sizing: border-box;
-            transition: 0.2s;
+            font-size: 1.1rem;
         }
-        input[type="email"]:focus { 
-            outline: none; 
-            border-color: var(--neon-green); /* Brightens only on focus */
-            box-shadow: 0 0 10px rgba(41, 232, 18, 0.2); 
-        }
+        input[type="email"]:focus { outline: none; box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); }
 
-        /* Ajax Status Messages */
-        #status-message { margin-top: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: var(--neon-green); }
-        [data-fs-success] { display: none; }
-        [data-fs-error] { color: #cc4444; display: none; font-size: 0.8rem; margin-bottom: 10px; }
+        #status-message { margin-top: 25px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; display: none; text-align: center; font-size: 1.2rem; }
 
         .checklist-preview {
-            max-width: 800px;
-            margin: 40px auto;
-            text-align: left;
-            padding: 20px;
-            border-left: 2px solid var(--purple);
-            background: rgba(129, 9, 209, 0.03); /* Extremely muted fill */
+            margin-top: 50px;
+            padding: 25px;
+            border-left: 3px solid var(--purple);
+            background: rgba(188, 19, 254, 0.03);
         }
-        .checklist-item { margin-bottom: 15px; color: #a1a1aa; font-size: 0.9rem; }
+        .checklist-item { margin-bottom: 12px; color: #888; font-size: 0.9rem; }
         .checklist-item strong { color: var(--purple); }
+
+        footer { padding: 120px 20px; text-align: center; border-top: 1px solid #111; }
+        footer a { color: var(--purple); text-decoration: none; font-size: 0.9rem; letter-spacing: 3px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -101,84 +102,117 @@
     <div class="ticker-wrap">
         <marquee scrollamount="10">
             <span class="ticker-item" style="color:var(--neon-green)">XYBERHAZE // 2033 STANDARD ACTIVE</span>
-            <span class="ticker-item" style="color:#52525b">// BTC: $94,231 ▲</span>
+            <span class="ticker-item">BTC: $94,231 ▲</span>
             <span class="ticker-item" style="color:var(--purple)">PHASE 01: VULNERABILITY ASSESSMENT OPEN</span>
-            <span class="ticker-item" style="color:#52525b">// SOL: $192.45 ▼</span>
-            <span class="ticker-item" style="color:var(--terminal-gray)">THREAT LEVEL: NOMINAL</span>
+            <span class="ticker-item">SOL: $192.45 ▼</span>
+            <span class="ticker-item">RED TEAM CMM: LEVEL 5 OPTIMIZED</span>
+            <span class="ticker-item" style="color:var(--neon-green)">INFRASTRUCTURE: HARDENED</span>
         </marquee>
     </div>
 
-    <div style="text-align: center; padding: 120px 20px 80px;">
-        <h1 style="font-size: clamp(3rem, 10vw, 5.5rem); letter-spacing: -3px; margin: 0; color: #fff;">XYBERHAZE</h1>
-        <h2 style="color: var(--purple); font-size: 1.1rem; letter-spacing: 6px; margin-top: 5px; margin-bottom: 40px; font-weight: 400;">// 2033 STANDARD</h2>
-        <p style="color: #cbd5e1; font-size: 1.3rem; margin-bottom: 60px; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.5; font-weight: 300;">
-            Architecting Offensive-Grade Defense for Private Estates and Digital Legacies.
+    <div class="hero">
+        <h1>XYBERHAZE</h1>
+        <h2>// 2033 STANDARD</h2>
+        <p>
+            Architecting Offensive-Grade Defense for Private Estates and Digital Legacies. 
+            Removing the single point of failure from your digital life.
         </p>
+        <a href="#conversion-vault" class="btn-main" style="width:auto; padding: 15px 60px;">Initialize Sync</a>
     </div>
 
     <div class="card-grid">
         <div class="card">
-            <h3 style="color:var(--purple); margin:0; font-weight: 400; font-size: 0.9rem; letter-spacing: 2px;">MODULE // 01</h3>
-            <h2 style="font-size:2.2rem; margin:15px 0; color: #fff;">Family Vault</h2>
-            <p style="color: #a1a1aa; line-height: 1.7; font-weight: 300; font-size: 1rem;">Stress-testing your legacy. We ensure your assets stay invisible to AI-scams and malicious exploits via physical and digital hardening.</p>
+            <h3 style="color:var(--purple);">MODULE // 01</h3>
+            <h2 style="font-size:2.4rem; margin:0 0 20px 0;">Family Vault</h2>
+            <p style="color: #94a3b8; line-height: 1.7; font-size: 1.1rem;">
+                Stress-testing your legacy. We ensure your assets stay invisible to AI-scams via physical hardening and the <strong>Successor Protocol.</strong>
+            </p>
         </div>
         <div class="card">
-            <h3 style="color:var(--neon-green); margin:0; font-weight: 400; font-size: 0.9rem; letter-spacing: 2px;">MODULE // 02</h3>
-            <h2 style="font-size:2.2rem; margin:15px 0; color: #fff;">Hardened Tools</h2>
-            <p style="color: #a1a1aa; line-height: 1.7; font-weight: 300; font-size: 1rem;">Verified hardware, air-gapped recovery protocols, and encrypted Swiss communication channels for the 2033 era.</p>
+            <h3 style="color:var(--neon-green);">MODULE // 02</h3>
+            <h2 style="font-size:2.4rem; margin:0 0 20px 0;">Hardened Tools</h2>
+            <p style="color: #94a3b8; line-height: 1.7; font-size: 1.1rem;">
+                Verified hardware procurement, air-gapped recovery protocols, and encrypted <strong>Swiss jurisdictional</strong> communication channels.
+            </p>
         </div>
     </div>
 
     <section id="conversion-vault">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h2 style="text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; color: var(--neon-green);">// Phase 01: Vulnerability Assessment</h2>
-            <p style="color: var(--terminal-gray); font-family: 'Inter', sans-serif;">Enter your secure endpoint to receive the 12-point Legacy Checklist.</p>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px;">// Phase 01: Secure Briefing</h2>
+            <p style="color: var(--terminal-gray); font-size: 1rem;">Receive the proprietary 12-point <strong>2033 Legacy Audit.</strong></p>
         </div>
 
-        <div id="status-message" data-fs-success>
-            [ SUCCESS: ENCRYPTION KEY SYNCED. CHECK YOUR INBOX. ]
+        <div id="status-message">
+            [ ACCESS GRANTED: CHECK YOUR INBOX FOR THE 2033 AUDIT ]
         </div>
 
-        <form id="assessment-form">
+        <form id="assessment-form" action="https://formspree.io/f/xgodpoer" method="POST">
             <input type="text" name="_gotcha" style="display:none">
             
-            <label style="display: block; margin-bottom: 10px; font-size: 0.8rem; opacity: 0.6;">[DESTINATION_EMAIL]:</label>
+            <label style="display: block; margin-bottom: 12px; font-size: 0.8rem; color: var(--neon-green);">[TARGET_ENDPOINT]:</label>
+            <input type="email" name="email" id="email" required placeholder="USER@SECURE-NODE.COM">
             
-            <div data-fs-error="email"></div>
-            <input type="email" name="email" id="email" required placeholder="USER@SECURE-NODE.COM" data-fs-field>
-            
-            <button type="submit" class="btn-main" style="width: 100%; background: var(--neon-green); color: #000; margin-top: 15px;" data-fs-submit-btn>
-                GENERATE CHECKLIST & SYNC
+            <button type="submit" class="btn-main" id="submit-btn">
+                GENERATE AUDIT & SYNC
             </button>
-            
-            <div data-fs-error></div>
         </form>
 
         <div class="checklist-preview">
             <div class="checklist-item"><strong>01.</strong> Dead Man’s Switch Verification</div>
-            <div class="checklist-item"><strong>02.</strong> Deepfake Verification Phrase</div>
-            <div class="checklist-item"><strong>03.</strong> Hardware Token Redundancy</div>
-            <div class="checklist-item" style="opacity:0.4;">[... 9 additional vectors hidden ...]</div>
+            <div class="checklist-item"><strong>02.</strong> Deepfake Verification Phrase (AI-Defense)</div>
+            <div class="checklist-item"><strong>03.</strong> Hardware Token Redundancy (Yubikey Trio)</div>
+            <div class="checklist-item" style="opacity:0.3;">[... 9 ADDITIONAL VECTORS HIDDEN ...]</div>
         </div>
     </section>
 
-    <footer style="padding: 100px 20px 120px; text-align: center; border-top: 1px solid #1a1a1a;">
-        <a href="mailto:xyberhaze@outlook.com" style="color:var(--purple); text-decoration:none; font-size: 0.8rem; letter-spacing: 3px; font-weight: 300; opacity: 0.7;">DIRECT_ENQUIRY: xyberhaze@outlook.com</a>
-        <p style="margin-top: 60px; opacity: 0.15; font-size: 0.7rem; letter-spacing: 5px;">XYBERHAZE LABS // EST 2024 // ALL RIGHTS RESERVED</p>
+    <footer>
+        <a href="mailto:xyberhaze@outlook.com">ENQUIRY: XYBERHAZE@OUTLOOK.COM</a>
+        <p style="margin-top: 60px; opacity: 0.15; font-size: 0.7rem; letter-spacing: 8px;">
+            XYBERHAZE LABS // ARCHITECTING THE FUTURE // EST 2024
+        </p>
     </footer>
 
     <script>
-      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      formspree('initForm', { 
-        formElement: '#assessment-form', 
-        formId: 'xgodpoer', // Your Formspree ID
-        onSuccess: function() {
-            // Hide the form on success to show only the success message
-            document.getElementById('assessment-form').style.display = 'none';
-        }
-      });
+        const form = document.getElementById("assessment-form");
+        const status = document.getElementById("status-message");
+        const btn = document.getElementById("submit-btn");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            btn.disabled = true;
+            btn.innerText = "SYNCING NODE...";
+
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    status.style.display = "block";
+                    form.style.display = "none";
+                    
+                    // AUTOMATIC PDF REDIRECT
+                    // Change this URL to your actual PDF link once uploaded to GitHub
+                    setTimeout(() => {
+                        window.open('https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf', '_blank');
+                    }, 1500);
+
+                } else {
+                    response.json().then(data => {
+                        alert("Sync Failed: " + data.errors.map(err => err.message).join(", "));
+                        btn.disabled = false;
+                        btn.innerText = "GENERATE AUDIT & SYNC";
+                    })
+                }
+            }).catch(error => {
+                alert("Critical Error: Connection Interrupted.");
+                btn.disabled = false;
+                btn.innerText = "GENERATE AUDIT & SYNC";
+            });
+        });
     </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
