@@ -5,106 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYBERHAZE // 2033 STANDARD</title>
     <style>
-        :root {
-            --neon-green: #39FF14;
-            --dark-bg: #0a0a0a;
-        }
-
+        :root { --neon: #39FF14; --bg: #0a0a0a; }
         body {
-            background-color: var(--dark-bg);
-            color: white;
+            background-color: var(--bg); color: white;
             font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            text-align: center;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; min-height: 100vh; margin: 0; text-align: center;
+            padding: 20px;
         }
 
         .glitch {
-            font-size: 3rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: relative;
-            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-                        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            font-size: 3.5rem; font-weight: bold; text-transform: uppercase;
+            text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75);
             animation: glitch 500ms infinite;
         }
 
         @keyframes glitch {
-            0% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75); }
-            14% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75); }
-            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 0, 255, 0.75); }
-            49% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 0, 255, 0.75); }
-            50% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75); }
-            99% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75); }
-            100% { text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em -0.05em 0 rgba(0, 0, 255, 0.75); }
+            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75); }
+            50% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
+            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75); }
         }
 
-        .subtitle {
-            margin-top: 10px;
-            font-size: 1rem;
-            color: var(--neon-green);
-            letter-spacing: 2px;
+        .briefing {
+            max-width: 600px; margin: 30px 0; color: #aaa;
+            font-size: 0.9rem; line-height: 1.6; border-left: 2px solid var(--neon);
+            padding-left: 20px; text-align: left;
         }
 
-        /* MAIN BUTTON */
         .btn-main {
-            margin-top: 40px;
-            padding: 20px 40px;
-            background-color: transparent;
-            color: var(--neon-green);
-            border: 2px solid var(--neon-green);
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            padding: 20px 40px; border: 2px solid var(--neon);
+            color: var(--neon); text-decoration: none; font-weight: bold;
+            text-transform: uppercase; transition: 0.3s; margin-bottom: 20px;
         }
 
-        .btn-main:hover {
-            background-color: var(--neon-green);
-            color: black;
-            box-shadow: 0 0 20px var(--neon-green);
-        }
+        .btn-main:hover { background: var(--neon); color: black; box-shadow: 0 0 20px var(--neon); }
 
-        /* COMMAND MENU */
-        .command-menu {
-            margin-top: 30px;
-            display: flex;
-            gap: 20px;
-        }
+        .command-menu { margin-top: 40px; display: flex; gap: 20px; }
+        .menu-link { color: #666; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
+        .menu-link:hover { color: var(--neon); }
 
-        .menu-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .menu-link:hover {
-            color: var(--neon-green);
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.7rem;
-            color: #444;
-        }
+        .status { margin-top: 50px; color: #333; font-size: 0.7rem; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <div class="glitch">XYBERHAZE</div>
-    <div class="subtitle">ESTATE MATURITY PROTOCOL // 2033</div>
+    
+    <div class="briefing">
+        <strong>// SYSTEM BRIEFING: 2033 STANDARD</strong><br>
+        Traditional digital legacies are failing. We specialize in offensive-grade 
+        estate maturity. Protect your sovereign assets, biometric signatures, 
+        and air-gapped credentials before the next grid-shift. 
+    </div>
 
     <a href="https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf" target="_blank" class="btn-main">
         GENERATE AUDIT & SYNC
@@ -112,13 +64,10 @@
 
     <div class="command-menu">
         <a href="protocol.html" class="menu-link">[ RUN PROTOCOL ]</a>
-        <span style="color: #333;">|</span>
         <a href="gear.html" class="menu-link">[ ACCESS ARMORY ]</a>
     </div>
 
-    <div class="footer">
-        SYSTEM STATUS: ONLINE // ENCRYPTION: ACTIVE
-    </div>
+    <div class="status">LOGGED_AS: XYBERHAZE // ENCRYPTION: AES-256_ACTIVE</div>
 
 </body>
 </html>
