@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYBERHAZE // 2033 ESTATE PROTOCOL</title>
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="XYBERHAZE // 2033 ESTATE PROTOCOL">
     <meta property="og:description" content="Offensive-grade digital estate hardening. Public Beta active.">
@@ -12,24 +12,23 @@
     <meta property="og:url" content="https://xyberhaze.github.io/">
 
     <style>
-        :root { 
-            --neon: #39FF14; 
-            --bg: #0d0d0d; /* Slightly softer black for readability */
-            --gray: #1a1a1a; 
-            --text-dim: #999; 
+        :root {
+            --neon: #39FF14;
+            --bg: #0d0d0d;
+            --gray: #1a1a1a;
+            --text-dim: #999;
         }
-        
+
         * { box-sizing: border-box; }
-        
+
         body {
-            background-color: var(--bg); 
-            color: #eeeeee; /* Off-white for better reading */
+            background-color: var(--bg);
+            color: #eeeeee;
             font-family: 'Courier New', Courier, monospace;
             margin: 0; line-height: 1.6;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Subtle CRT Effect - Much lighter than before */
         body::before {
             content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
@@ -53,19 +52,19 @@
             padding: 3px 12px; font-weight: bold; letter-spacing: 2px;
         }
 
-        .tagline { 
-            color: var(--neon); font-size: 0.9rem; margin: 25px 0; 
+        .tagline {
+            color: var(--neon); font-size: 0.9rem; margin: 25px 0;
             letter-spacing: 3px; font-weight: bold;
         }
 
         .sync-box {
-            background: #151515; border: 1px solid #333; 
+            background: #151515; border: 1px solid #333;
             padding: 40px; margin: 20px auto; width: 100%; max-width: 480px;
         }
 
         input[type="email"] {
-            background: #000; border: 1px solid #444; color: var(--neon); 
-            padding: 15px; width: 100%; margin-bottom: 20px; 
+            background: #000; border: 1px solid #444; color: var(--neon);
+            padding: 15px; width: 100%; margin-bottom: 20px;
             font-family: monospace; font-size: 1.1rem; text-align: center;
             border-radius: 0;
         }
@@ -76,6 +75,7 @@
             text-transform: uppercase; transition: 0.3s; width: 100%;
             background: transparent; cursor: pointer; letter-spacing: 2px;
         }
+
         .btn:hover { background: var(--neon); color: black; }
 
         .command-menu { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
@@ -83,73 +83,37 @@
         .menu-link:hover { color: var(--neon); border-bottom: 1px solid var(--neon); }
 
         .content-wrap { max-width: 900px; width: 100%; padding: 80px 20px; }
-        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
         .card { border-top: 1px solid #333; padding-top: 20px; }
         .card h3 { color: var(--neon); font-size: 1rem; margin-bottom: 10px; }
         .card p { color: var(--text-dim); font-size: 0.9rem; }
+        
+        .ref-link { color: var(--neon); text-decoration: none; font-weight: bold; }
+        .ref-link:hover { text-decoration: underline; }
 
         footer { padding: 60px; color: #444; font-size: 0.75rem; letter-spacing: 3px; }
     </style>
 </head>
 <body>
-
     <section class="hero">
         <div class="glitch">XYBERHAZE</div>
         <div><span class="beta-tag">BETA v1.08</span></div>
-        
         <div class="tagline">ESTATE MATURITY PROTOCOL // 2033</div>
-        
         <p style="max-width: 550px; color: #bbb; font-size: 1rem; margin-bottom: 30px;">
             Harden your digital legacy against systemic instability. 
             Identify vulnerabilities before they become permanent losses.
         </p>
-
         <div class="sync-box">
             <p style="color: #888; font-size: 0.7rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
                 Required: Email Sync for Audit Access
             </p>
-            
             <form id="audit-form" action="https://formspree.io/f/xgodpoer" method="POST">
                 <input type="email" name="email" placeholder="ACCESS_ID@ENCRYPTED.COM" required>
                 <button type="submit" class="btn">GENERATE AUDIT & SYNC</button>
             </form>
         </div>
-
         <div class="command-menu">
             <a href="protocol.html" class="menu-link">[ RUN PROTOCOL ]</a>
             <a href="gear.html" class="menu-link">[ ACCESS ARMORY ]</a>
         </div>
     </section>
-
-    <div class="content-wrap">
-        <div class="pillar-grid">
-            <div class="card">
-                <h3>01 // SOVEREIGNTY</h3>
-                <p>Strategic removal of 3rd-party dependencies. Full private key ownership for all digital assets.</p>
-            </div>
-            <div class="card">
-                <h3>02 // INTEGRITY</h3>
-                <p>Advanced protection for biometric signatures against AI-voice cloning and deepfake theft.</p>
-            </div>
-            <div class="card">
-                <h3>03 // CONTINUITY</h3>
-                <p>Automated "Dead Man" switches to ensure trustless transfer of legacy assets to heirs.</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        XYBERHAZE // NODE_01_ACTIVE // 2026
-    </footer>
-
-    <script>
-      const form = document.getElementById('audit-form');
-      form.onsubmit = function(e) {
-        setTimeout(() => {
-          window.open('https://xyberhaze.github.io/XYBERHAZE-AUDIT-2033.pdf', '_blank');
-        }, 1500); 
-      };
-    </script>
-
-</body>
-</html>
