@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYBERHAZE // 2033 ESTATE PROTOCOL</title>
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:title" content="XYBERHAZE // 2033 ESTATE PROTOCOL">
-    <meta property="og:description" content="Offensive-grade digital estate hardening. Public Beta active.">
-    <meta property="og:image" content="https://xyberhaze.github.io/preview.jpg">
-    <meta property="og:url" content="https://xyberhaze.github.io/">
-
     <style>
         :root {
             --neon: #39FF14;
@@ -62,6 +56,18 @@
             padding: 40px; margin: 20px auto; width: 100%; max-width: 480px;
         }
 
+        /* NEW VPN LINK IN SYNC BOX */
+        .vpn-alert {
+            display: block;
+            border: 1px dashed var(--neon);
+            padding: 10px;
+            margin-bottom: 20px;
+            color: var(--neon);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
         input[type="email"] {
             background: #000; border: 1px solid #444; color: var(--neon);
             padding: 15px; width: 100%; margin-bottom: 20px;
@@ -78,18 +84,11 @@
 
         .btn:hover { background: var(--neon); color: black; }
 
-        .command-menu { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .menu-link { color: #777; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
-        .menu-link:hover { color: var(--neon); border-bottom: 1px solid var(--neon); }
-
         .content-wrap { max-width: 900px; width: 100%; padding: 80px 20px; }
         .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
         .card { border-top: 1px solid #333; padding-top: 20px; }
         .card h3 { color: var(--neon); font-size: 1rem; margin-bottom: 10px; }
         .card p { color: var(--text-dim); font-size: 0.9rem; }
-        
-        .ref-link { color: var(--neon); text-decoration: none; font-weight: bold; }
-        .ref-link:hover { text-decoration: underline; }
 
         footer { padding: 60px; color: #444; font-size: 0.75rem; letter-spacing: 3px; }
     </style>
@@ -99,21 +98,40 @@
         <div class="glitch">XYBERHAZE</div>
         <div><span class="beta-tag">BETA v1.08</span></div>
         <div class="tagline">ESTATE MATURITY PROTOCOL // 2033</div>
-        <p style="max-width: 550px; color: #bbb; font-size: 1rem; margin-bottom: 30px;">
-            Harden your digital legacy against systemic instability. 
-            Identify vulnerabilities before they become permanent losses.
-        </p>
+        
         <div class="sync-box">
-            <p style="color: #888; font-size: 0.7rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
-                Required: Email Sync for Audit Access
-            </p>
+            <a href="https://refer-nordvpn.com/SEhnqqfVaaO" class="vpn-alert">
+                [!] WARNING: SECURE VPN TUNNEL RECOMMENDED ->
+            </a>
+            
             <form id="audit-form" action="https://formspree.io/f/xgodpoer" method="POST">
                 <input type="email" name="email" placeholder="ACCESS_ID@ENCRYPTED.COM" required>
                 <button type="submit" class="btn">GENERATE AUDIT & SYNC</button>
             </form>
         </div>
-        <div class="command-menu">
-            <a href="protocol.html" class="menu-link">[ RUN PROTOCOL ]</a>
-            <a href="gear.html" class="menu-link">[ ACCESS ARMORY ]</a>
-        </div>
     </section>
+
+    <div class="content-wrap">
+        <div class="pillar-grid">
+            <div class="card">
+                <h3>01 // SOVEREIGNTY</h3>
+                <p>Full private key ownership for all digital assets.</p>
+            </div>
+            <div class="card">
+                <h3>02 // INTEGRITY</h3>
+                <p>Advanced protection for biometric signatures.</p>
+            </div>
+            <div class="card">
+                <h3>03 // CONTINUITY</h3>
+                <p>Automated "Dead Man" switches for legacy transfer.</p>
+            </div>
+            <div class="card">
+                <h3>04 // ANONYMITY</h3>
+                <p>Mask your location. <a href="https://refer-nordvpn.com/SEhnqqfVaaO" style="color:var(--neon);">[ ACTIVATE NORD ]</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2033 XYBERHAZE // ALL RIGHTS RESERVED</footer>
+</body>
+</html>
