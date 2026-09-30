@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYBERHAZE // 2033 ESTATE PROTOCOL</title>
+    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
 
     <style>
         :root {
@@ -19,44 +20,70 @@
             background-color: var(--bg);
             color: #eeeeee;
             font-family: 'Courier New', Courier, monospace;
-            margin: 0; line-height: 1.6;
-            display: flex; flex-direction: column; align-items: center;
+            margin: 0; 
+            line-height: 1.6;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
         }
 
         body::before {
-            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+            content: " "; 
+            display: block; 
+            position: fixed; 
+            top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-            z-index: 9999; background-size: 100% 4px; pointer-events: none;
+            z-index: 9999; 
+            background-size: 100% 4px; 
+            pointer-events: none;
         }
 
         .hero {
-            min-height: 100vh; width: 100%; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; padding: 60px 20px;
+            min-height: 100vh; 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            padding: 60px 20px;
             text-align: center;
         }
 
         .glitch {
-            font-size: clamp(2.5rem, 10vw, 4.5rem); font-weight: 900;
-            color: white; letter-spacing: 8px; margin-bottom: 10px;
+            font-size: clamp(2.5rem, 10vw, 4.5rem); 
+            font-weight: 900;
+            color: white; 
+            letter-spacing: 8px; 
+            margin-bottom: 10px;
             text-shadow: 2px 2px var(--bg), 4px 4px rgba(57, 255, 20, 0.3);
         }
 
         .beta-tag {
-            font-size: 0.75rem; background: var(--neon); color: black;
-            padding: 3px 12px; font-weight: bold; letter-spacing: 2px;
+            font-size: 0.75rem; 
+            background: var(--neon); 
+            color: black;
+            padding: 3px 12px; 
+            font-weight: bold; 
+            letter-spacing: 2px;
         }
 
         .tagline {
-            color: var(--neon); font-size: 0.9rem; margin: 25px 0;
-            letter-spacing: 3px; font-weight: bold;
+            color: var(--neon); 
+            font-size: 0.9rem; 
+            margin: 25px 0;
+            letter-spacing: 3px; 
+            font-weight: bold;
         }
 
         .sync-box {
-            background: #151515; border: 1px solid #333;
-            padding: 40px; margin: 20px auto; width: 100%; max-width: 480px;
+            background: #151515; 
+            border: 1px solid #333;
+            padding: 40px; 
+            margin: 20px auto; 
+            width: 100%; 
+            max-width: 480px;
         }
 
-        /* NEW VPN LINK IN SYNC BOX */
         .vpn-alert {
             display: block;
             border: 1px dashed var(--neon);
@@ -69,31 +96,80 @@
         }
 
         input[type="email"] {
-            background: #000; border: 1px solid #444; color: var(--neon);
-            padding: 15px; width: 100%; margin-bottom: 20px;
-            font-family: monospace; font-size: 1.1rem; text-align: center;
+            background: #000; 
+            border: 1px solid #444; 
+            color: var(--neon);
+            padding: 15px; 
+            width: 100%; 
+            margin-bottom: 20px;
+            font-family: monospace; 
+            font-size: 1.1rem; 
+            text-align: center;
             border-radius: 0;
         }
 
         .btn {
-            padding: 20px; border: 2px solid var(--neon);
-            color: var(--neon); text-decoration: none; font-weight: 900;
-            text-transform: uppercase; transition: 0.3s; width: 100%;
-            background: transparent; cursor: pointer; letter-spacing: 2px;
+            padding: 20px; 
+            border: 2px solid var(--neon);
+            color: var(--neon); 
+            text-decoration: none; 
+            font-weight: 900;
+            text-transform: uppercase; 
+            transition: 0.3s; 
+            width: 100%;
+            background: transparent; 
+            cursor: pointer; 
+            letter-spacing: 2px;
         }
 
-        .btn:hover { background: var(--neon); color: black; }
+        .btn:hover { 
+            background: var(--neon); 
+            color: black; 
+        }
 
-        .content-wrap { max-width: 900px; width: 100%; padding: 80px 20px; }
-        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .card { border-top: 1px solid #333; padding-top: 20px; }
-        .card h3 { color: var(--neon); font-size: 1rem; margin-bottom: 10px; }
-        .card p { color: var(--text-dim); font-size: 0.9rem; }
+        .payhip-wrapper {
+            margin-top: 20px;
+            text-align: center;
+        }
 
-        footer { padding: 60px; color: #444; font-size: 0.75rem; letter-spacing: 3px; }
+        .content-wrap { 
+            max-width: 900px; 
+            width: 100%; 
+            padding: 80px 20px; 
+        }
+
+        .pillar-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 40px; 
+        }
+
+        .card { 
+            border-top: 1px solid #333; 
+            padding-top: 20px; 
+        }
+
+        .card h3 { 
+            color: var(--neon); 
+            font-size: 1rem; 
+            margin-bottom: 10px; 
+        }
+
+        .card p { 
+            color: var(--text-dim); 
+            font-size: 0.9rem; 
+        }
+
+        footer { 
+            padding: 60px; 
+            color: #444; 
+            font-size: 0.75rem; 
+            letter-spacing: 3px; 
+        }
     </style>
 </head>
 <body>
+
     <section class="hero">
         <div class="glitch">XYBERHAZE</div>
         <div><span class="beta-tag">BETA v1.08</span></div>
@@ -101,15 +177,19 @@
         
         <div class="sync-box">
             <a href="https://refer-nordvpn.com/SEhnqqfVaaO" class="vpn-alert">
-                [!] WARNING: SECURE VPN TUNNEL RECOMMENDED ->
+                [!] WARNING: SECURE VPN TUNNEL RECOMMENDED -&gt;
             </a>
             
             <form id="audit-form" action="https://formspree.io/f/xgodpoer" method="POST">
                 <input type="email" name="email" placeholder="ACCESS_ID@ENCRYPTED.COM" required>
-                <button type="submit" class="btn">GENERATE AUDIT & SYNC</button>
+                <button type="submit" class="btn">GENERATE AUDIT &amp; SYNC</button>
             </form>
         </div>
     </section>
+
+    <div class="payhip-wrapper">
+        <a href="https://payhip.com/b/f2EjK" class="payhip-buy-button" data-theme="green" data-product="f2EjK">Buy Now</a>
+    </div>
 
     <div class="content-wrap">
         <div class="pillar-grid">
@@ -129,9 +209,14 @@
                 <h3>04 // ANONYMITY</h3>
                 <p>Mask your location. <a href="https://refer-nordvpn.com/SEhnqqfVaaO" style="color:var(--neon);">[ ACTIVATE NORD ]</a></p>
             </div>
+            <div class="card">
+                <h3>05 // PURCHASE</h3>
+                <p><a href="https://payhip.com/b/f2EjK" class="payhip-buy-button" data-theme="green" data-product="f2EjK">Buy Now</a></p>
+            </div>
         </div>
     </div>
 
     <footer>&copy; 2033 XYBERHAZE // ALL RIGHTS RESERVED</footer>
+
 </body>
 </html>
